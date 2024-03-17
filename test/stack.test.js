@@ -13,18 +13,28 @@ class Stack {
       this.items[this.top] = value;
     }
   }
-
-describe('My Stack', () => {
-
-
-    it("is created empty", () => {
-        const stack = new Stack();
-
-        expect(stack.top).toBe(-1);
-        expect(stack.items).toEqual({})
+  
+  describe('My Stack', () => {
+    let stack;
+  
+    beforeEach(() => {
+      stack = new Stack();
     });
-
-    test.todo("it can push to the top");
-
-    test.todo("can pop off");
-})
+  
+    it('is created empty', () => {
+      expect(stack.top).toBe(-1);
+      expect(stack.items).toEqual({});
+    });
+  
+    it('can push to the top', () => {
+      stack.push('🥑');
+      expect(stack.top).toBe(0);
+      expect(stack.peek).toBe('🥑');
+  
+      stack.push('🌽');
+      expect(stack.top).toBe(1);
+      expect(stack.peek).toBe('🌽');
+    });
+  
+    it.todo('can pop off');
+  });
